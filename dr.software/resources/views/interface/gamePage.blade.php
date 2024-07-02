@@ -101,7 +101,8 @@
                     'data': state
                 },
                 success: function(response) {
-                    console.log(response);
+                   // state = response;
+                   console.log(response);
                 },
             });
         }
@@ -118,8 +119,8 @@
         }
 
         function loadGame() {
-            state = {}//
-            
+
+            state = @json($response);
             showTextNode({{ $node }})
         }
 

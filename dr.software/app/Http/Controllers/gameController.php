@@ -15,9 +15,9 @@ class gameController extends Controller
 
         $id = $request['id'];
         $scene = DB::table('scene')->where('id', $id)->first();
-         $node = $scene->adress;
-        // $state = $scene->state;
-        // $state = json_decode($scene->state, true);  // JSON decode işlemi
+        $node = $scene->adress;
+        $response = $scene->state;
+        $response = json_decode($response, true);  // JSON decode işlemi
 
 
 
@@ -26,7 +26,7 @@ class gameController extends Controller
             return view('interface.gamePage', compact('node'));
         } else {
 
-            return view('interface.gamePage', compact('node'));
+            return view('interface.gamePage', compact('node','response'))->with('success','response');
         }
     }
     public function deleteScene(Request $request)
