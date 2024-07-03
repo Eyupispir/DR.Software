@@ -23,10 +23,10 @@ class gameController extends Controller
 
         if (is_null($node)) {
             $node = 1;
-            return view('interface.gamePage', compact('node'));
+            return view('interface.gamePage', compact('node','id'));
         } else {
 
-            return view('interface.gamePage', compact('node','response'))->with('success','response');
+            return view('interface.gamePage', compact('node','response','id'))->with('success','response');
         }
     }
     public function deleteScene(Request $request)

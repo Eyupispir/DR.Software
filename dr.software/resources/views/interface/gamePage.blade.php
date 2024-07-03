@@ -92,7 +92,8 @@
 
         function goAjax(variable) {
             const id = variable;
-            const resturl = "http://127.0.0.1:8001/savedata/" + id;
+            const di = {{ $id }}
+            const resturl = "http://127.0.0.1:8001/savedata/" + id +"/"+ di;
             $.ajax({
                 type: 'get',
                 url: resturl,
@@ -120,7 +121,9 @@
 
         function loadGame() {
 
-            state = @json($response);
+            state ={}
+            //@json($response)
+
             showTextNode({{ $node }})
         }
 
@@ -144,17 +147,6 @@
                     button.name = 'selected'
                     button.type = "submit"
                     button.id = 'selectiable'
-                    // button.addEventListener('click', goAjax() {
-                    //     var id = idInput.value;
-                    //     var resturl = "http://127.0.0.1:8001/savedata/" + id;
-                    //     $.ajax({
-                    //         url: resturl,
-                    //         dataType: 'jsonp',
-                    //         success: function(data) {
-                    //             console.log(data);
-                    //         }
-                    //     });
-                    // })
                     button.onclick = goAjax(a);
 
                 }

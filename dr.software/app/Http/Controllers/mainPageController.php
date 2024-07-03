@@ -13,8 +13,8 @@ class mainPageController extends Controller
     //takes input from db and shows the scenes in js
     public function showPage()
     {
-
-        $scenes = DB::table('scene')->get()->all();
+        $id = Auth::id();
+        $scenes = DB::table('scene')->where('user_id',$id)->get()->all();
 
         return view('interface.mainPage', compact('scenes'));
     }

@@ -35,7 +35,7 @@ Route::get('/deletescene/{id}',[gameController::class, 'deleteScene'])->name('de
 
 //////////////Save GAME///////////Start
 
-Route::get('/savedata/{id}', [ saveController::class , 'save']) ->name('savedata');
+Route::get('/savedata/{id}/{di}', [ saveController::class , 'save']) ->name('savedata');
 Route::get('/saveStatus', [saveController::class , 'saveStatus'])->name('saveStat');
 
 
