@@ -34,7 +34,7 @@ Route::get('/deletescene/{id}',[gameController::class, 'deleteScene'])->name('de
 
 
 //////////////Save GAME///////////Start
-
+//3 burada ajaxtan gelen root controllorına gidiyoe 
 Route::get('/savedata/{id}/{di}', [ saveController::class , 'save']) ->name('savedata');
 Route::get('/saveStatus', [saveController::class , 'saveStatus'])->name('saveStat');
 
