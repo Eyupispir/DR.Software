@@ -121,6 +121,7 @@
         //1. loads a geme with if there are any data in databse
         function loadGame() {
             state = @json($response)
+
             showTextNode({{ $node }})
         }
 
@@ -129,7 +130,7 @@
         function showTextNode(textNodeIndex) {
             const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
             textElement.innerText = textNode.text
-
+            console.log(state)
             while (optionButtonsElement.firstChild) {
                 optionButtonsElement.removeChild(optionButtonsElement.firstChild)
             }
@@ -166,7 +167,7 @@
         }
 
 
-        //story line JSON format 
+        //story line JSON format
         const textNodes = [{
                 id: 1,
                 text: 'You wake up in a strange place and place look like a city but there is no one around.',
