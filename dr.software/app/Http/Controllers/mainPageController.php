@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class mainPageController extends Controller
 {
     //function of showing page
-    //takes input from db and shows the scenes in js
+    //takes input from db and shows the scenes in cards
     public function showPage()
     {
         $id = Auth::id();
@@ -18,6 +18,8 @@ class mainPageController extends Controller
 
         return view('interface.mainPage', compact('scenes'));
     }
+
+    //when newGame stareded this function seting up for necceries
     public function newGame()
     {
 

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Schema;
 
 class saveController extends Controller
 {
-   
+   //taking data with ajax and sends to database
     public function save(Request $request)
     {
         $userId = Auth::id();

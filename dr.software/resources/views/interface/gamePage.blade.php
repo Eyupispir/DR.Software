@@ -113,18 +113,19 @@
         const optionButtonsElement = document.getElementById('option-buttons')
 
 
-
+        //starts a new game with empty state
         function startGame() {
-            state = {}
+            state = {"default": true}
             showTextNode(1)
         }
-
+        //1. loads a geme with if there are any data in databse
         function loadGame() {
             state = @json($response)
             showTextNode({{ $node }})
         }
 
-
+        //showtextNode function deletes the divs options and then recreate new textNodes.options
+        //and starts ajax for save operations
         function showTextNode(textNodeIndex) {
             const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
             textElement.innerText = textNode.text
@@ -150,11 +151,11 @@
                 }
             })
         }
-
+        //for specific textNodes requires some state
         function showOption(option) {
             return option.requiredState == null || option.requiredState(state)
         }
-
+        //checks for selected options properties
         function selectOption(option) {
             const nextTextNodeId = option.nextText
             if (nextTextNodeId <= 0) {
@@ -165,7 +166,7 @@
         }
 
 
-
+        //story line JSON format 
         const textNodes = [{
                 id: 1,
                 text: 'You wake up in a strange place and place look like a city but there is no one around.',

@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 class gameController extends Controller
 {
-    
+    //shows the inteface.gamepage with sending data
+    //taking request for scene_id and with that id taking data from DB
     public function showPage(Request $request)
     {
 
@@ -29,6 +30,8 @@ class gameController extends Controller
             return view('interface.gamePage', compact('node','response','id'))->with('success','response');
         }
     }
+    //deleteing scene
+    //taking scene_id
     public function deleteScene(Request $request)
     {
 
