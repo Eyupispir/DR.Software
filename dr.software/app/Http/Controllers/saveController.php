@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Schema;
 
 class saveController extends Controller
 {
-    //4. Burada gelen bilgiler data base kaydediliyor
-    //sonra bu verileri çekmek gerekiyor onun için gameController.php ye gidiyoruz
+   
     public function save(Request $request)
     {
         $userId = Auth::id();

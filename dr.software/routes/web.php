@@ -12,9 +12,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-// Route::get('/test', function () {
-//     return view('test');
-// });
+
 
 
 Route::get('/main' , [mainPageController::class , 'showPage'])->name('mainpage');
@@ -26,16 +24,12 @@ Route::get('/newGame',[mainPageController::class , 'newGame'])->name('new');
 //////////////LOAD GAME///////////Start
 Route::get('/game/{id}', [gameController::class , 'showPage'])->name('gamepage');
 Route::get('/deletescene/{id}',[gameController::class, 'deleteScene'])->name('deleteNode');
-
-
-
-
 //////////////LOAD GAME///////////End
 
 
 
 //////////////Save GAME///////////Start
-//3 burada ajaxtan gelen root controllorına gidiyoe
+
 Route::get('/savedata/{id}/{di}', [ saveController::class , 'save']) ->name('savedata');
 Route::get('/saveStatus', [saveController::class , 'saveStatus'])->name('saveStat');
 

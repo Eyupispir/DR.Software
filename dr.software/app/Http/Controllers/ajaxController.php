@@ -11,7 +11,7 @@ class ajaxController extends Controller
 {
     public function getJsonData()
 {
-    $jsonData = scene::select('state')->first(); // JSON olarak tutulan sütunu seçin
+    $jsonData = scene::select('state')->first(); 
 
     if ($jsonData) {
         return response()->json($jsonData->json_column);

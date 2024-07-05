@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class gameController extends Controller
 {
-    //5. birisi bu sayfaya girdiğinde bunlar olması bekleniyor
-    //id  = scene id
-    //node  = textnodeID
-    //response = DB den gelen state özellikleri
-    //tekrardan interface.gamePage.blade.php ye dönüyoruz
+    
     public function showPage(Request $request)
     {
 

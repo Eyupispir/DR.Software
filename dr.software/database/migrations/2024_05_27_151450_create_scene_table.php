@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('adress')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->json('state')->nullable();
+            $table->json('state')->nullable()->default('{"default": true}');
+
+
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();

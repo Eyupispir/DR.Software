@@ -65,15 +65,15 @@
 @section('content')
     <div class="flex-container bg-dark outside">
         <div class="screen insidek">
-            {{-- <a href="{{route('saveStat',state,)}}" name="save" >save game</a>//state dizisini göndermeye çalış --}}
+
 
         </div>
 
         <div class="container inside">
             <div id="text">Text</div>
-            <form id="options-form" method="post" >
+            <form id="options-form" method="post">
                 @csrf
-              <div id="option-buttons" class="btn-grid">
+                <div id="option-buttons" class="btn-grid">
                     <button class="btn">Option 1</button>
                     <button class="btn">Option 2</button>
                     <button class="btn">Option 3</button>
@@ -89,16 +89,11 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         let state = {}
-        //2. ajax parametre olarak scene (adrerss) id alıyor ve bu scene (adrerss) text node id yi url aracılığıyla,
-        //scene state lerini de direk data olarak arka tarafa gönderiyor
-        //scene state: bellirli hikaye nodlarını açmak için kullanılar envanter sistemi gibi bir şey
-        //eğer bu item yada bu durum varsa şunları yap tarzı işleme yarıyor
-        //di ise scene id dir kişinin new game bastığında oluşturduğu oyun id'si
-        //diğer yorum web.php de
+
         function goAjax(variable) {
             const id = variable;
             const di = {{ $id }}
-            const resturl = "http://127.0.0.1:8001/savedata/" + id +"/"+ di;
+            const resturl = "http://127.0.0.1:8001/savedata/" + id + "/" + di;
             $.ajax({
                 type: 'get',
                 url: resturl,
@@ -107,8 +102,8 @@
                     'data': state
                 },
                 success: function(response) {
-                   // state = response;
-                   console.log(response);
+
+                    console.log(response);
                 },
             });
         }
@@ -123,16 +118,9 @@
             state = {}
             showTextNode(1)
         }
-        //6. burada controllerdan aldığımız json dosyasını json formatında yazdırmak için  json(response) kodunu kullanıyoruz
-        // ama kullandığımızda hata veriyor ve hata GET POST hattası olarak karşımıza çıkıyor database veri kaydetmede sıkıntı yok
-        // hatta {} ile çalıştırdığımızda kayıt etme işlmei dışında sorun yok ama burya getirmeye çalışınca sıkıntı çıkıyor
-        // consolda cannot read properties of null'. hatsını verdiğini görüğüm bunu araştırıcağım
-            function loadGame() {
 
-            state = {}
-            //@json($response)
-
-
+        function loadGame() {
+            state = @json($response)
             showTextNode({{ $node }})
         }
 
@@ -140,11 +128,11 @@
         function showTextNode(textNodeIndex) {
             const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
             textElement.innerText = textNode.text
-            console.log(state);
+
             while (optionButtonsElement.firstChild) {
                 optionButtonsElement.removeChild(optionButtonsElement.firstChild)
             }
-            // 1. burada buttonları oluşturup buttonlara özellik ekliyoruz ve bu özelliklerin içinde ajax ta integre ediyorum
+
             textNode.options.forEach(option => {
                 if (showOption(option)) {
                     const button = document.createElement('button')
