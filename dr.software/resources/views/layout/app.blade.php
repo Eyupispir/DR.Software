@@ -37,7 +37,12 @@
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a class="dropdown-item" href="{{ route('mainpage') }}">Load game</a></li>
                                         <li><a class="dropdown-item" href="{{ route('mainpage') }}">Save file</a></li>
-                                        <li><a class="dropdown-item" href="#">Exit</a></li>
+                                        <li><div class="nav-link" id="nav-bar-logoutbutton">
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <button class="dropdown-item" type="submit">Exit</button>
+                                            </form>
+                                        </div></li>
                                     </ul>
                                 </li>
                             </ul>

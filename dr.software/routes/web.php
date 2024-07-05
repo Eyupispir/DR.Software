@@ -3,13 +3,14 @@
 use App\Http\Controllers\ajaxController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\gameController;
+use App\Http\Controllers\logoutController;
 use App\Http\Controllers\mainPageController;
 use App\Http\Controllers\saveController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // Route::get('/test', function () {
 //     return view('test');
@@ -34,7 +35,7 @@ Route::get('/deletescene/{id}',[gameController::class, 'deleteScene'])->name('de
 
 
 //////////////Save GAME///////////Start
-//3 burada ajaxtan gelen root controllorına gidiyoe 
+//3 burada ajaxtan gelen root controllorına gidiyoe
 Route::get('/savedata/{id}/{di}', [ saveController::class , 'save']) ->name('savedata');
 Route::get('/saveStatus', [saveController::class , 'saveStatus'])->name('saveStat');
 
@@ -49,7 +50,9 @@ Route::get('/get-json-data', [AjaxController::class, 'getJsonData'])->name('json
 //////////////ajax///////////End
 
 
-
+//////////////LOGOUT///////////Start
+Route::post('/logout',[logoutController::class , 'logout'])->name('logout');
+//////////////LOGOUT///////////End
 
 Route::middleware([
     'auth:sanctum',
